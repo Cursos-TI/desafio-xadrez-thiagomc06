@@ -1,45 +1,58 @@
 #include <stdio.h>
+void moverTorre (int casas){ //recursividade usada para mover a torre
+    if(casas > 0){
+        printf("Direita \n");
+        moverTorre(casas - 1);
+    }
+}
+
+void moverBispo(int casas){ //recursividade usada para mover o bispo
+    if(casas > 0){
+    for(int i = 5; i <= casas; i++){ //uso de loops aninhados
+        for(int j = 0; j < i; j++){
+            printf("Direita,cima \n");
+            
+        }
+          
+    }
+
+    moverBispo(casas - 1);
+}
+}
+void moverRainha(int casas){ //recursividade usada para mover a rainha
+    if(casas > -3){
+        printf("Esquerda\n");
+        moverRainha(casas - 1);
+    }
+}
+
 int main(){
-
-    int torre = 0;
-    int bispo;
-    int rainha = 0;
-    int cavalo = 1;
-    ;
-
-        printf("Mova a torre\n");
-
-    while(torre < 5){ // mover a torre 5 casas para a direita
-        printf("Direita \n"); // imprime a direção do movimento
-        torre++; // incremento para evitar o loop infinito
-    }
-
-        printf("Mova o bispo\n");
-
-    do{ printf("escolha o número de casas de 1 a 5 para mover o bispo: \n"); // mover o bispo 'x' casas
-        scanf("%d", &bispo);
-        if(bispo > 5){ //se escolhido um número maior que 5 o programa retorna para o usuário escolher novamente
-            printf("Você escolheu um número maior que 5. Escolha certo dessa vez: \n");
-        }else { 
-            printf("%d casas direita,cima\n", bispo); //imprime a direção e o total de casas que o bispo irá percorrer
-        }
-
-    }while(bispo > 5);
-
-            printf("Mova a rainha\n");
-
-    for(rainha = 0; rainha < 8; rainha++){ // mover a rainha 8 casas para a esquerda
-            printf("Esquerda\n"); // imprime a direção do movimento
-    }
+    int casas = 5; // variavel usada para determinar a referencia da quantidade usada nas recursividades 
     
-            printf("Mova o cavalo\n");
+
+    printf("MOVIMENTO TORRE: \n");
+    moverTorre(casas); // codigo usado para chamar a recursividade da torre
+    printf("\n");
+
     
-    while(cavalo--){ //loop externo
-        for(int i = 0; i < 2; i++){ //loop interno
-            printf("Baixo\n"); // move o cavalo duas casas para baixo
+    printf("MOVIMENTO BISPO: \n"); // codigo usado para chamar a recursividade do bispo
+    moverBispo(casas);
+    printf("\n");
+
+
+    printf("MOVIMENTO RAINHA: \n"); // codigo usado para chamar a recursividade da rainha
+    moverRainha(casas);
+    printf("\n");
+
+
+    printf("MOVIMENTO CAVALO: \n");
+
+    for(int i = 1; i < 2 ; i++){ // uso de loops aninhados para determinar o movimento do cavalo
+        for(int j = 0; j <= i; j++){
+            printf("Cima\n"); 
         }
-        printf("Esquerda\n"); // move o cavalo uma casa para a esquerda
+            printf("Direita");
     }
+
     return 0;
-
 }
